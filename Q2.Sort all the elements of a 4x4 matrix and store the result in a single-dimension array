@@ -1,0 +1,30 @@
+#include <stdio.h>
+
+int main() {
+    int a[4][4], b[16];
+    int i, j, k = 0, temp, x, y;
+
+    printf("Enter elements of 4x4 Matrix:\n");
+    for(i = 0; i < 4; i++)
+        for(j = 0; j < 4; j++) {
+            scanf("%d", &a[i][j]);
+            b[k++] = a[i][j];
+        }
+
+    // Bubble Sort
+    for(x = 0; x < 16; x++) {
+        for(y = 0; y < 16 - 1 - x; y++) {
+            if(b[y] > b[y + 1]) {
+                temp = b[y];
+                b[y] = b[y + 1];
+                b[y + 1] = temp;
+            }
+        }
+    }
+
+    printf("Sorted 1D Array:\n");
+    for(i = 0; i < 16; i++)
+        printf("%d ", b[i]);
+
+    return 0;
+}
